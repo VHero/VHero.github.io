@@ -4,14 +4,26 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives | VHero的博客</title>
+  <title>Mongodb的安装和启动 | VHero的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="VHero的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="如何安装Mongodb并且在Node中使用Mongodb数据库？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mongodb的安装和启动">
+<meta property="og:url" content="http://yoursite.com/2016/10/12/mongodb/index.html">
 <meta property="og:site_name" content="VHero的博客">
+<meta property="og:description" content="如何安装Mongodb并且在Node中使用Mongodb数据库？">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-b95214f8510c319c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-6afaf288e4f9f39b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-7bef13ed51d6dac1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-7897a2f3b341b3bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-437336db14067dad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-74910324f67b87ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-51ffc38425af4ff1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-11-07T07:25:09.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VHero的博客">
+<meta name="twitter:title" content="Mongodb的安装和启动">
+<meta name="twitter:description" content="如何安装Mongodb并且在Node中使用Mongodb数据库？">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1785100-b95214f8510c319c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="VHero的博客" type="application/atom+xml">
   
@@ -120,282 +132,108 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      Mongodb的安装和启动
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>如何安装Mongodb并且在Node中使用Mongodb数据库？<br><a id="more"></a></p>
+<h3 id="Mongodb的安装"><a href="#Mongodb的安装" class="headerlink" title="Mongodb的安装"></a>Mongodb的安装</h3><p>首先需要安装Node和Git，这里不再赘述。没有安装的，可以去搜索以下如何安装Node和Git。</p>
+<p>去<a href="https://www.mongodb.com/download-center?jmp=nav" target="_blank" rel="external">Mongodb</a>的官网下载安装包，32位系统下载32位的安装包，64位系统下载64位的安装包。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-b95214f8510c319c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装包下载.png"></p>
+<p>默认安装完成，然后在C盘有个MongoDB文件夹。为了方便启动MongoDB，我们将mongod.exe路径加入环境变量，计算机-&gt;属性-&gt;高级系统设置-&gt;环境变量</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-6afaf288e4f9f39b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="环境变量.png"></p>
+<p>在Path中加入mongod.exe的路径，这样在使用命令行就能在任何地方都能用到mongdb的命令。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-7bef13ed51d6dac1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编辑环境变量.png"></p>
+<h3 id="启动并建立数据文件"><a href="#启动并建立数据文件" class="headerlink" title="启动并建立数据文件"></a>启动并建立数据文件</h3><p>在D盘新建一个mongodb文件夹用来放数据文件并在mongodb文件夹下建立data,log文件夹，在log文件夹下建立mongodb.log文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-7897a2f3b341b3bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="建立文件夹.png"></p>
+<p>打开命令行输入以下命令启动mongodb，<code>mongod --dbpath d:\mongodb\data</code>，出现下图，表示启动成功</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-437336db14067dad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="启动mongodb.png"></p>
+<p>新建一个文件夹<code>test</code>，输入命令<code>npm install mongodb --save</code>安装mongodb，然后在<code>test</code>文件夹中新建<strong>db.js</strong>文件。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-74910324f67b87ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="node连接.png"></p>
+<p><strong>db.js</strong>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var mongodb = require(&apos;mongodb&apos;);</div><div class="line">var server = new mongodb.Server(&apos;localhost&apos;, 27017, &#123; auto_reconnect: true &#125;);</div><div class="line">var db = new mongodb.Db(&apos;mydb&apos;, server, &#123; safe: true &#125;);</div><div class="line">db.open(function(err, db) &#123;</div><div class="line">    if (!err) &#123;</div><div class="line">        console.log(&apos;connect&apos;);</div><div class="line">    &#125; else &#123;</div><div class="line">        console.log(err);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>打开Git Bash命令行，输入<code>node db.js</code>，正常运行会出现<strong>connect</strong>的提示。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-51ffc38425af4ff1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行.png"></p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/07/npm/" class="archive-article-date">
-  	<time datetime="2016-11-07T06:22:57.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/07/npm/">npm</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/包管理工具/">包管理工具</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/27/console/" class="archive-article-date">
-  	<time datetime="2016-10-27T08:03:54.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/27/console/">console的秘密</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/12/CRUD/" class="archive-article-date">
-  	<time datetime="2016-10-12T07:04:34.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/12/CRUD/">如何使用Node操作Mongodb</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mongodb/">Mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/12/mongodb/" class="archive-article-date">
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/12/mongodb/" class="archive-article-date">
   	<time datetime="2016-10-12T02:18:21.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/12/mongodb/">Mongodb的安装和启动</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mongodb/">Mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/06/addssh/" class="archive-article-date">
-  	<time datetime="2016-10-06T01:51:13.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/06/addssh/">生成SSH公钥</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSH公钥/">SSH公钥</a></li></ul>
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/12/CRUD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          如何使用Node操作Mongodb
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/06/addssh/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">生成SSH公钥</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/22/browser/" class="archive-article-date">
-  	<time datetime="2016-09-22T08:24:44.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/22/browser/">浏览器如何加载、解析、渲染</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/20/hexo4/" class="archive-article-date">
-  	<time datetime="2016-09-20T09:47:40.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/20/hexo4/">Hexo使用的小Tips</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tips/">Tips</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/19/hexo3/" class="archive-article-date">
-  	<time datetime="2016-09-19T04:50:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/19/hexo3/">Github+Hexo搭建博客教程(三)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
       </div>
@@ -418,8 +256,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

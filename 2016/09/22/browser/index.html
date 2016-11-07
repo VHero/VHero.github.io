@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>浏览器如何加载、解析、渲染 | VHero的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="浏览器加载、解析、渲染的过程是怎么样的？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器如何加载、解析、渲染">
+<meta property="og:url" content="http://yoursite.com/2016/09/22/browser/index.html">
+<meta property="og:site_name" content="VHero的博客">
+<meta property="og:description" content="浏览器加载、解析、渲染的过程是怎么样的？">
+<meta property="og:updated_time" content="2016-10-06T03:40:12.977Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器如何加载、解析、渲染">
+<meta name="twitter:description" content="浏览器加载、解析、渲染的过程是怎么样的？">
+  
+    <link rel="alternative" href="/atom.xml" title="VHero的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/blogimg/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Alex</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Alex</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/blogimg/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Alex</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-browser" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浏览器如何加载、解析、渲染
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>浏览器加载、解析、渲染的过程是怎么样的？<br><a id="more"></a></p>
+<h3 id="为什么要了解浏览器加载、解析、渲染这个过程？"><a href="#为什么要了解浏览器加载、解析、渲染这个过程？" class="headerlink" title="为什么要了解浏览器加载、解析、渲染这个过程？"></a>为什么要了解浏览器加载、解析、渲染这个过程？</h3><p><strong>Why</strong><br>1.了解浏览器如何进行加载，我们可以在引用外部样式文件，外部js时，将他们放到合适的位置，使浏览器以最快的速度将文件加载完毕<br>2.了解浏览器如何进行解析，我们可以在构建DOM结构，组织css选择器时，选择最优的写法，提高浏览器的解析速率。<br>3.了解浏览器如何进行渲染，明白渲染的过程，我们在设置元素属性，编写js文件时，可以减少”重绘“”重新布局“的消耗。<br>这三个过程在实际进行的时候又不是完全独立，而是会有交叉。会造成一边加载，一边解析，一边渲染的工作现象。</p>
+<h3 id="浏览器是如何进行加载、解析、渲染的呢？"><a href="#浏览器是如何进行加载、解析、渲染的呢？" class="headerlink" title="浏览器是如何进行加载、解析、渲染的呢？"></a>浏览器是如何进行加载、解析、渲染的呢？</h3><p><strong>How</strong></p>
+<blockquote>
+<p>域名-&gt;DNS服务器-&gt;查询ip地址对应的网络服务器并发送http请求-&gt;网络服务器解析请求并发送给数据库服务器-&gt;数据库服务器将请求资源发送给网络服务器-&gt;网络服务器解析数据并生成html文件，放入http response中，返回浏览器-&gt;浏览器解析http response-&gt;下载html及包含的外部文件(文件包含图片及多媒体)</p>
+</blockquote>
+<p>1.用户访问网页，DNS服务器（域名解析系统）会根据用户提供的域名查找对应的IP地址，找到后，系统会向对应IP地址的网络服务器发送一个http请求。<br>2.网络服务器解析请求，并发送请求给数据库服务器。<br>3.数据库服务器将请求的资源返回给网络服务器，网络服务器解析数据，并生成html文件，放入http response中，返回给浏览器。<br>4.浏览器解析 http response。<br>5.浏览器解析 http response后，需要下载html文件，以及html文件内包含的外部引用文件，及文件内涉及的图片或者多媒体文件。</p>
+<h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a><strong>加载</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;test&lt;/title&gt;</div><div class="line">	&lt;script src=&quot;test.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;p&gt;阻塞&lt;/p&gt;</div><div class="line">	&lt;img src=&quot;test.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>加载过程中遇到css或者图片，不影响html的加载，因为是异步请求。但是文档加载过程中遇到js文件，html文档会挂起渲染（加载解析渲染同步）的线程，不仅要等待文档中js文件加载完毕，还要等待解析执行完毕，才可以恢复html文档的渲染线程。</p>
+<blockquote>
+<p>原因：JS有可能会修改DOM，最为经典的document.write，这意味着，在JS执行完成前，后续所有资源的下载可能是没有必要的，这是js阻塞后续资源下载的根本原因。<br>办法：可以将外部引用的js文件放在前。</p>
+</blockquote>
+<p>虽然css文件的加载不影响js文件的加载，但是却影响js文件的执行，即使js文件内只有一行代码，也会造成阻塞。</p>
+<blockquote>
+<p>原因：可能会有 var width = $(‘#id’).width()，这意味着，js代码执行前，浏览器必须保证css文件已下载和解析完成。这也是css阻塞后续js的根本原因。</p>
+</blockquote>
+<p>现代浏览器存在 prefetch 优化，浏览器会另外开启线程，提前下载js、css文件，需要注意的是，预加载js并不会改变dom结构，他将这个工作留给主加载</p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a><strong>解析</strong></h3><p>1、浏览器通过请求的 URL 进行域名解析，向服务器发起请求，接收文件（HTML、CSS、JS、Images等等）。<br>2、HTML 文件加载后，开始构建 DOM Tree<br>3、CSS 样式文件加载后，开始解析和构建 CSS Rule Tree<br>4、Javascript 脚本文件加载后， 通过 DOM API 和 CSSDOM API 来操作 DOM Tree 和 CSS Rule Tree</p>
+<h3 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a><strong>渲染</strong></h3><p>即为构建渲染树的过程，他是原来DOM树的可视化表示，构建这棵树是为了以正确的顺序绘制文档内容。</p>
+<blockquote>
+<p>渲染树和DOM树的关系，不可见的dom元素（<head>…</head> display=none）不会被插入渲染树中。还有像一些节点的位置为绝对或浮动定位（需要css知识理解），这些节点会在文本流之外，因此会在两棵树上的不同位置，渲染树标识出真实的位置，并用一个占位结构标识出他们原来的位置。</p>
+</blockquote>
+<p>1、浏览器引擎通过 DOM Tree 和 CSS Rule Tree 构建 Rendering Tree<br>2、Rendering Tree 并不与 DOM Tree 对应，比如像 <head> 标签内容或带有 display: none; 的元素节点并不包括在 Rendering Tree 中 。<br>3、通过 CSS Rule Tree 匹配 DOM Tree 进行定位坐标和大小，是否换行，以及 position、overflow、z-index 等等属性，这个过程称为 Flow 或 Layout 。<br>4、最终通过调用Native GUI 的 API 绘制网页画面的过程称为 Paint </head></p>
+<p>当用户在浏览网页时进行交互或通过 js 脚本改变页面结构时，以上的部分操作有可能重复运行，此过程称为 Repaint 或 Reflow。</p>
+<p><strong>Repaint</strong><br>当元素改变的时候，将不会影响元素在页面当中的位置（比如 background-color, border-color, visibility），浏览器仅仅会应用新的样式重绘此元素，此过程称为 Repaint。<br><strong>Reflow</strong><br>当元素改变的时候，将会影响文档内容或结构，或元素位置，此过程称为 Reflow。（ HTML 使用的是 flow based layout ，也就是流式布局，所以，如果某元件的几何尺寸发生了变化，需要重新布局，也就叫 Reflow。）</p>
+<p>注意：回流必将引起重绘，而重绘不一定会引起回流。</p>
+<blockquote>
+<p>Reflow 的成本比 Repaint 的成本高得多的多。一个结点的 Reflow 很有可能导致子结点，甚至父点以及同级结点的 Reflow 。在一些高性能的电脑上也许还没什么，但是如果 Reflow 发生在手机上，那么这个过程是延慢加载和耗电的。—-浏览器的渲染原理简介</p>
+</blockquote>
+<p>回流何时发生：</p>
+<p>当页面布局和几何属性改变时就需要回流。下述情况会发生浏览器回流：</p>
+<p>1.添加或者删除可见的DOM元素；</p>
+<p>2.元素位置改变；</p>
+<p>3.元素尺寸改变——边距、填充、边框、宽度和高度</p>
+<p>4.内容改变——比如文本改变或者图片大小改变而引起的计算值宽度和高度改变；</p>
+<p>5.页面渲染初始化；</p>
+<p>6.浏览器窗口尺寸改变——resize事件发生时；</p>
+<blockquote>
+<p>当然，我们的浏览器是聪明的，它不会像上面那样，你每改一次样式，它就 Reflow 或 Repaint 一次。一般来说，浏览器会把这样的操作积攒一批，然后做一次 Reflow ，这又叫异步 reflow 或增量异步 Reflow 。但是有些情况浏览器是不会这么做的，比如：Resize 窗口，改变了页面默认的字体，等。对于这些操作，浏览器会马上进行 Reflow 。—-浏览器的渲染原理简介</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/22/browser/" class="archive-article-date">
+  	<time datetime="2016-09-22T08:24:44.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/06/addssh/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          生成SSH公钥
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/20/hexo4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo使用的小Tips</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Alex
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Mongodb/" style="font-size: 13.33px;">Mongodb</a> <a href="/tags/Node/" style="font-size: 13.33px;">Node</a> <a href="/tags/SSH公钥/" style="font-size: 10px;">SSH公钥</a> <a href="/tags/Tips/" style="font-size: 10px;">Tips</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/flex/" style="font-size: 13.33px;">flex</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/包管理工具/" style="font-size: 10px;">包管理工具</a> <a href="/tags/博客/" style="font-size: 16.67px;">博客</a> <a href="/tags/数据库/" style="font-size: 13.33px;">数据库</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://smallfat401.github.io/">曹家小胖</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

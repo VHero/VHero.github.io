@@ -4,14 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/11 | VHero的博客</title>
+  <title>flex布局(一) | VHero的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="VHero的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2016/11/index.html">
+  <meta name="description" content="网页的传统布局是基于盒子模型，依赖于display+position+float的方式完成网页布局，但是这样对于垂直居中的布局就很难实现。flex布局的浏览器支持情况如下图。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flex布局(一)">
+<meta property="og:url" content="http://yoursite.com/2016/09/18/flex1/index.html">
 <meta property="og:site_name" content="VHero的博客">
+<meta property="og:description" content="网页的传统布局是基于盒子模型，依赖于display+position+float的方式完成网页布局，但是这样对于垂直居中的布局就很难实现。flex布局的浏览器支持情况如下图。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-e265dba001952f60.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-c3ca994f6f60c504.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-10-06T02:43:21.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VHero的博客">
+<meta name="twitter:title" content="flex布局(一)">
+<meta name="twitter:description" content="网页的传统布局是基于盒子模型，依赖于display+position+float的方式完成网页布局，但是这样对于垂直居中的布局就很难实现。flex布局的浏览器支持情况如下图。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1785100-e265dba001952f60.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="VHero的博客" type="application/atom+xml">
   
@@ -120,54 +127,100 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-flex1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/07/npm/" class="archive-article-date">
-  	<time datetime="2016-11-07T06:22:57.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/07/npm/">npm</a>
+    <h1 class="article-title" itemprop="name">
+      flex布局(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网页的传统布局是基于盒子模型，依赖于display+position+float的方式完成网页布局，但是这样对于垂直居中的布局就很难实现。flex布局的浏览器支持情况如下图。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-e265dba001952f60.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flex布局浏览器支持.jpg"><br><a id="more"></a></p>
+<h2 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h2><p>Flex布局是弹性布局,为了使用flex布局必须设置display为flex，webkit的内核必须加上-webkit-的前缀。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123; </div><div class="line">    display: -webkit-flex;/* Safari */ </div><div class="line">    display: flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果想让行内元素使用flex布局<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">    display: -webkit-inline-flex; /* Safari */</div><div class="line">    display: inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>容器设置flex后，所有的子元素都自动变成flex item，称为Flex项目。<br>注意，设为Flex布局以后，子元素的多列组中所有column-*属性、float、clear属性和vertical-align属性在Flex容器上没有作用。</p>
+<h2 id="Flex布局的基础知识和概念"><a href="#Flex布局的基础知识和概念" class="headerlink" title="Flex布局的基础知识和概念"></a>Flex布局的基础知识和概念</h2><p>如果常规布局是基于块和内联文本流方向，那么Flex布局就是基于“<strong>Flex-flow</strong>”方向。下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-c3ca994f6f60c504.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS3-Flexbox-Model.jpg"></p>
+<p><strong>main axis：</strong> flex容器的主轴<br><strong>cross axis：</strong> flex容器的交叉轴<br><strong>main start:</strong> 主轴的开始位置<br><strong>main end:</strong> 主轴的结束位置<br><strong>cross start:</strong> 交叉轴的开始位置<br><strong>cross end:</strong> 交叉轴的结束位置<br><strong>main size:</strong> Flex项目的在主轴方向的宽度或高度就是项目的主轴长度，Flex项目的主轴长度属性是width或height属性，由哪一个对着主轴方向决定。<br><strong>cross size:</strong> Flex项目的在侧轴方向的宽度或高度就是项目的侧轴长度，Flex项目的侧轴长度属性是width或height属性，由哪一个对着侧轴方向决定。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/18/flex1/" class="archive-article-date">
+  	<time datetime="2016-09-18T06:59:31.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-18</time>
+</a>
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/包管理工具/">包管理工具</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+    <a href="/2016/09/18/flex2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          flex布局(二)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/14/baidu-transcoding/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">百度转码解决方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 
       </div>
@@ -190,8 +243,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

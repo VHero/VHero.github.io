@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>flex布局(二) | VHero的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="容器的属性
+
+
+flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flex布局(二)">
+<meta property="og:url" content="http://yoursite.com/2016/09/18/flex2/index.html">
+<meta property="og:site_name" content="VHero的博客">
+<meta property="og:description" content="容器的属性
+
+
+flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-172135ce84fe19fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-57a966f13c846a75.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-9947edf2b8637709.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-a4035ba404de69b4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-d34566eb9d756453.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-b39464c34dc0b5c7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-d27ac740b45034dd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-2ba73bd2370f663b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-96a64693cb0a5bf7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-4c48abd501be41f6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-2c9dfdf025c046e5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-82e56678189b10aa.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-ff2b82a9ffee4f29.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-86db1ccac2969f52.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-4028c3cc2b444669.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-fb7115632a305702.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-b676697722316f37.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-1bf1fbf38170dd65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-ad19691b556d32e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-09-19T06:58:26.519Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="flex布局(二)">
+<meta name="twitter:description" content="容器的属性
+
+
+flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1785100-172135ce84fe19fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="VHero的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/blogimg/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Alex</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Alex</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/blogimg/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Alex</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-flex2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      flex布局(二)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>容器的属性</p>
+<blockquote>
+<ul>
+<li>flex-direction</li>
+<li>flex-wrap</li>
+<li>flex-flow</li>
+<li>justify-content</li>
+<li>align-items</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<p><strong>1.flex-direction属性决定主轴的方向(决定项目的排列方向)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">      flex-direction: row | row-reverse | column | column-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>row(默认值):</strong> 如果书写方式是ltr，那么Flex项目从左向右排列；如果书写方式是rtl，那么Flex项目从右向左排列<br><strong>row-reverse:</strong> 如果书写方式是ltr，那么Flex项目从右向左排列；如果书写方式是rtl，那么Flex项目从左向右排列<br><strong>column:</strong> 和row类似，只不过方向是从上到下排列<br><strong>column-reverse:</strong> 和row-reverse类似，只不过方向是从下向上排列<br><img src="http://upload-images.jianshu.io/upload_images/1785100-172135ce84fe19fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="bg2015071005.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">     -webkit-flex-direction: row;/* Safari */</div><div class="line">     flex-direction: row;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>主轴为水平方向，起点在左端。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-57a966f13c846a75.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-flex-direction-row.jpg"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">    -webkit-flex-direction: row-reverse;/* Safari */</div><div class="line">    flex-direction: row-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>主轴为水平方向，起点在右端。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-9947edf2b8637709.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-flex-direction-row-reverse.jpg"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">  -webkit-flex-direction: column; /* Safari */</div><div class="line">  flex-direction:         column;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>主轴为垂直方向，起点在上沿。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-a4035ba404de69b4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-flex-direction-column.jpg"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">  -webkit-flex-direction: column-reverse; /* Safari */</div><div class="line">  flex-direction:         column-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>主轴为垂直方向，起点在下沿。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-d34566eb9d756453.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-flex-direction-column-reverse.jpg"></p>
+<p><strong>2.flex-wrap属性</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line"> flex-wrap: nowrap | wrap | wrap-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>nowrap(默认值):</strong> 不换行<br><strong>wrap:</strong> 换行，且按照left to right top to bottom的形式排列<br><strong>wrap-reverse:</strong> 换行按照 left to right bottom to top的形式排列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123; </div><div class="line">-webkit-flex-wrap: nowrap; /* Safari */ </div><div class="line">flex-wrap: nowrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-b39464c34dc0b5c7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-flex-wrap-nowrap.jpg"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line"> -webkit-flex-wrap: wrap; /* Safari */</div><div class="line"> flex-wrap: wrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-d27ac740b45034dd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-flex-wrap-wrap.jpg"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line"> -webkit-flex-wrap: wrap-reverse; /* Safari */</div><div class="line"> flex-wrap: wrap-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-2ba73bd2370f663b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-flex-wrap-wrap-reverse.jpg"></p>
+<p><strong>3.flex-flow属性</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123; </div><div class="line">-webkit-flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;; /* Safari */ </div><div class="line">flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>flex-flow是flex-direction和flex-wrap的简写形式，flex-flow的默认值是row nowrap。</p>
+<p><strong>4.justify-content</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">    justify-content: flex-start|flex-end|center|space-between|space-around;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>justify-content属性定义了项目在主轴上的对齐方式。</p>
+<ul>
+<li>flex-start（默认值）：左对齐</li>
+<li>flex-end：右对齐</li>
+<li>center： 居中</li>
+<li>space-between：两端对齐，项目之间的间隔都相等。</li>
+<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+</ul>
+<p><strong>下列均假设主轴为从左到右</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123; </div><div class="line">        -webkit-justify-content: flex-start; /* Safari */ </div><div class="line">        justify-content: flex-start;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>flex项目在flex容器中是左对齐的。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-96a64693cb0a5bf7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-justify-content-flex-start.jpg"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">    -webkit-justify-content: flex-end;</div><div class="line">    /* Safari */</div><div class="line">    justify-content: flex-end;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>flex项目在flex容器中是右对齐的。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-4c48abd501be41f6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-justify-content-flex-end.jpg"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">  -webkit-justify-content: center; /* Safari */</div><div class="line">  justify-content:         center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>flex项目在flex容器中是居中的。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-2c9dfdf025c046e5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-justify-content-center.jpg"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">  -webkit-justify-content: space-between; /* Safari */</div><div class="line">  justify-content:         space-between;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>两端对齐，项目之间的间隔都相等。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-82e56678189b10aa.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-justify-content-space-between.jpg"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">  -webkit-justify-content: space-around; /* Safari */</div><div class="line">  justify-content:         space-around;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-ff2b82a9ffee4f29.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-justify-content-space-around.jpg"></p>
+<p><strong>5.align-items</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.flex-container&#123; align-items: flex-start | flex-end | center | baseline | stretch;&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>flex-start：交叉轴的起点对齐。</li>
+<li>flex-end：交叉轴的终点对齐。</li>
+<li>center：交叉轴的中点对齐。</li>
+<li>baseline: 项目的第一行文字的基线对齐。</li>
+<li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123;</div><div class="line">   -webkit-align-items: stretch; /* Safari */</div><div class="line">   align-items: stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-86db1ccac2969f52.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-align-items-stretch.jpg"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.flex-container &#123; </div><div class="line">  -webkit-align-items: baseline; /* Safari */ </div><div class="line">  align-items: baseline;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>项目的第一行文字的基线对齐。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-4028c3cc2b444669.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-align-items-baseline.jpg"></p>
+<p><strong>6.align-self属性</strong><br>align-self属性允许单个项目与其他项目拥有不同的对齐方式，能够覆盖align-item属性，默认为auto。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.item &#123; align-self: auto | flex-start | flex-end | center | baseline | stretch;&#125;</div></pre></td></tr></table></figure>
+<p><strong>7.order属性</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.item &#123; order: &lt;integer&gt;;&#125;</div></pre></td></tr></table></figure></p>
+<p>order属性定义了项目的排列顺序，数值越小越在前面，默认值为0。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-fb7115632a305702.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-order.jpg"></p>
+<p><strong>8.flex-grow属性</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.item &#123; flex-grow: &lt;number&gt;; /* default 0 */&#125;</div></pre></td></tr></table></figure></p>
+<p>flex-grow定义项目的放大比例，默认为0</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-b676697722316f37.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-flex-grow-1.jpg"></p>
+<p><strong>9.flex-shrink属性</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.item &#123; flex-shrink: &lt;number&gt;; /* default 1 */&#125;</div></pre></td></tr></table></figure></p>
+<p>flex-grow定义项目的缩小比例，默认为0。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-1bf1fbf38170dd65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-flex-shrink.jpg"></p>
+<p><strong>10.flex-basis属性</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.item &#123; flex-basis: &lt;length&gt; | auto; /* default auto */&#125;</div></pre></td></tr></table></figure></p>
+<p>这个属性可以和width和height一样设置固定值（如30px），这样则占据固定空间。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-ad19691b556d32e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flexbox-flex-basis.jpg"><br><strong>11.flex属性</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.item &#123; flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]&#125;</div></pre></td></tr></table></figure></p>
+<p>flex属性是flex-grow、flex-shrink、flex-basis的简写，默认值为0，1，auto。</p>
+<p>以上内容主要参考了下面两篇文章：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">flex布局教程</a>、<a href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties#flexbox-container-properties" target="_blank" rel="external">A Visual Guide to CSS3 Flexbox Properties</a></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/18/flex2/" class="archive-article-date">
+  	<time datetime="2016-09-18T07:02:35.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-18</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/09/18/sublime-plugs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          sublime好用的插件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/18/flex1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">flex布局(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Alex
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Mongodb/" style="font-size: 13.33px;">Mongodb</a> <a href="/tags/Node/" style="font-size: 13.33px;">Node</a> <a href="/tags/SSH公钥/" style="font-size: 10px;">SSH公钥</a> <a href="/tags/Tips/" style="font-size: 10px;">Tips</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/flex/" style="font-size: 13.33px;">flex</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/包管理工具/" style="font-size: 10px;">包管理工具</a> <a href="/tags/博客/" style="font-size: 16.67px;">博客</a> <a href="/tags/数据库/" style="font-size: 13.33px;">数据库</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://smallfat401.github.io/">曹家小胖</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

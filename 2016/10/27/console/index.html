@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>console的秘密 | VHero的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="你不知道的console">
+<meta property="og:type" content="article">
+<meta property="og:title" content="console的秘密">
+<meta property="og:url" content="http://yoursite.com/2016/10/27/console/index.html">
+<meta property="og:site_name" content="VHero的博客">
+<meta property="og:description" content="你不知道的console">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-d3305a0c85df0c66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-7826a0618a1c06e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-11-07T07:25:09.456Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="console的秘密">
+<meta name="twitter:description" content="你不知道的console">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1785100-d3305a0c85df0c66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="VHero的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/blogimg/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Alex</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Alex</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/blogimg/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Alex</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-console" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      console的秘密
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>你不知道的console<br><a id="more"></a></p>
+<h4 id="一、常见打印信息的方法"><a href="#一、常见打印信息的方法" class="headerlink" title="一、常见打印信息的方法"></a>一、常见打印信息的方法</h4><p><strong>打印字符串</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;打印字符串&apos;);</div></pre></td></tr></table></figure></p>
+<p><strong>打印提示消息</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.info(&apos;打印提示消息&apos;);</div></pre></td></tr></table></figure></p>
+<p><strong>打印警告消息</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.warn(&apos;打印警告消息&apos;);</div></pre></td></tr></table></figure></p>
+<p><strong>打印错误消息</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.error(&apos;打印错误消息&apos;);</div></pre></td></tr></table></figure></p>
+<p><strong>打印调试信息</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.debug(&apos;打印调试消息&apos;);</div></pre></td></tr></table></figure></p>
+<h4 id="二、其他console的方法"><a href="#二、其他console的方法" class="headerlink" title="二、其他console的方法"></a>二、其他console的方法</h4><p><strong>查看所有方法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(console);</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Object&#123;</div><div class="line">	assert:function assert()</div><div class="line">	clear:function clear()</div><div class="line">	constructor:function ConsoleBase()</div><div class="line">	count:function count()</div><div class="line">	debug:function debug()</div><div class="line">	dir:function dir()</div><div class="line">	dirxml:function dirxml()</div><div class="line">	error:function error()</div><div class="line">	group:function group()</div><div class="line">	groupCollapsed:function groupCollapsed()</div><div class="line">	groupEnd:function groupEnd()</div><div class="line">	info:function info()</div><div class="line">	log:function log()</div><div class="line">	markTimeline:function markTimeline()</div><div class="line">	profile:function profile()</div><div class="line">	profileEnd:function profileEnd()</div><div class="line">	table:function table()</div><div class="line">	time:function time()</div><div class="line">	timeEnd:function timeEnd()</div><div class="line">	timeStamp:function timeStamp()</div><div class="line">	timeline:function timeline()</div><div class="line">	timelineEnd:function timelineEnd()</div><div class="line">	trace:function trace()</div><div class="line">	warn:function warn()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>console对象中不存在上述的方法，上述的方法是根据原型链在console对象的上层中找到的</p>
+<p><strong>清理控制台</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.clear()</div></pre></td></tr></table></figure></p>
+<p>我们在调试代码的时候很多时候会使用console的一些方法，这样在控制台就有一些乱七八糟的东西，可以使用<code>console.clear()</code>这个方法，清空控制台。</p>
+<p><strong>查看对象信息</strong><br>我们当然可以使用<code>console.log</code>查看，可是你不觉得这个太丑了吗，作为前端颜控患者，我们拒绝使用任何丑陋的东西，所以在这里我们使用<code>console.table</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var data = [</div><div class="line">    &#123;</div><div class="line">        &apos;姓名&apos;: &apos;小明&apos;, </div><div class="line">        &apos;性别&apos;: &apos;男&apos;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        &apos;姓名&apos;: &apos;小红&apos;,</div><div class="line">        &apos;数量&apos;: 1</div><div class="line">    &#125;</div><div class="line">];</div><div class="line">console.table(data);</div></pre></td></tr></table></figure>
+<p>输出:<br><img src="http://upload-images.jianshu.io/upload_images/1785100-d3305a0c85df0c66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="table.png"></p>
+<p>html代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&apos;person&apos;&gt;</div><div class="line">    &lt;p&gt;人&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>JavaScript代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var person = document.getElementById(&apos;person&apos;);</div><div class="line">console.dirxml(person);</div></pre></td></tr></table></figure></p>
+<p><strong>性能测试</strong></p>
+<p>有时候我们需要对某段代码进行优化，这时候我们可以使用<code>console.time()</code>和<code>console.timeEnd()</code>进行测试那段代码执行所需要的时间，然后对代码进行优化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function sum(total)&#123;</div><div class="line">	for(var i=0;i&lt;10;i++)&#123;</div><div class="line">		for(var j=0;j&lt;10;j++)&#123;</div><div class="line">			total++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return total;</div><div class="line">&#125;	</div><div class="line">console.time(&apos;时间&apos;);</div><div class="line">sum(0);</div><div class="line">console.timeEnd(&apos;时间&apos;);</div></pre></td></tr></table></figure></p>
+<p>上面的是测试运行时间，还有一个console.profile()和console .profileEnd()<br>输出显示在 profile<br><img src="http://upload-images.jianshu.io/upload_images/1785100-7826a0618a1c06e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="profile.png"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>这些方法在chrome中可以使用，但是各个浏览器可能有些不同，所以请尽量不要在生产环境中使用，但是在开发环境中我们合理的使用能够帮助我们提高开发效率</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/27/console/" class="archive-article-date">
+  	<time datetime="2016-10-27T08:03:54.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/07/npm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          npm
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/12/CRUD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何使用Node操作Mongodb</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Alex
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Mongodb/" style="font-size: 13.33px;">Mongodb</a> <a href="/tags/Node/" style="font-size: 13.33px;">Node</a> <a href="/tags/SSH公钥/" style="font-size: 10px;">SSH公钥</a> <a href="/tags/Tips/" style="font-size: 10px;">Tips</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/flex/" style="font-size: 13.33px;">flex</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/包管理工具/" style="font-size: 10px;">包管理工具</a> <a href="/tags/博客/" style="font-size: 16.67px;">博客</a> <a href="/tags/数据库/" style="font-size: 13.33px;">数据库</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://smallfat401.github.io/">曹家小胖</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

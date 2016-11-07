@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>学习gulp | VHero的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="很久以前就想了解一下前端的自动化流程，但是一直很迷惑。现在，参考各路大神的博客和加上自己的理解写出了一些关于gulp的理解。
+##安装Nodejs
+点击访问NodeJS官网，下载nodejs并且安装。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习gulp">
+<meta property="og:url" content="http://yoursite.com/2016/09/14/study-gulp/index.html">
+<meta property="og:site_name" content="VHero的博客">
+<meta property="og:description" content="很久以前就想了解一下前端的自动化流程，但是一直很迷惑。现在，参考各路大神的博客和加上自己的理解写出了一些关于gulp的理解。
+##安装Nodejs
+点击访问NodeJS官网，下载nodejs并且安装。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-659d21781e88d089.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1785100-0f5fbee1fefb6c36.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-09-19T07:00:39.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习gulp">
+<meta name="twitter:description" content="很久以前就想了解一下前端的自动化流程，但是一直很迷惑。现在，参考各路大神的博客和加上自己的理解写出了一些关于gulp的理解。
+##安装Nodejs
+点击访问NodeJS官网，下载nodejs并且安装。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1785100-659d21781e88d089.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="VHero的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/blogimg/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Alex</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Alex</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/blogimg/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Alex</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-study-gulp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      学习gulp
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很久以前就想了解一下前端的自动化流程，但是一直很迷惑。<br>现在，参考各路大神的博客和加上自己的理解写出了一些关于gulp的理解。</p>
+<p>##安装Nodejs</p>
+<p>点击访问<a href="https://nodejs.org/en/" target="_blank" rel="external">NodeJS官网</a>，下载nodejs并且安装。<br><a id="more"></a><br>为了确保Node已经正确安装，我们执行几个简单的命令。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
+<p>回车（Enter），如果正确安装的话，你会看到所安装的Node的版本号，接下来看看npm。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -v</div></pre></td></tr></table></figure></p>
+<p>这同样能得到npm的版本号。</p>
+<p>##安装gulp<br>全局安装<br>npm install -g gulp<br>本地安装<br>npm install gulp –save-dev</p>
+<p>##gulp的基础语法<br>gulp通过gulpfile文件来完成相关任务，因此项目中必须包含gulpfile.js</p>
+<p>gulp有五个方法：src、dest、task、run、watch<br>src和dest：指定源文件和处理后文件的路径<br>watch：用来监听文件的变化<br>task：指定任务<br>run：执行任务</p>
+<p>(PS:建议使用本地安装，这样不会污染全局环境)<br>npm install gulp gulp-less gulp-uglify gulp-imagemin gulp-minify-css gulp-clean gulp-rev gulp-rev-collector gulp-autoprefixer gulp-sequence –save-dev</p>
+<p>gulpfile.js的配置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>), <span class="comment">//压缩js</span></div><div class="line">    imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>), <span class="comment">//压缩图片</span></div><div class="line">    minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>), <span class="comment">//压缩css                 </span></div><div class="line">    clean = <span class="built_in">require</span>(<span class="string">'gulp-clean'</span>), <span class="comment">//清除文件</span></div><div class="line">    less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>), <span class="comment">//编译less</span></div><div class="line">    rev = <span class="built_in">require</span>(<span class="string">'gulp-rev'</span>), <span class="comment">//往css添加md5加密的版本号</span></div><div class="line">    revCollector = <span class="built_in">require</span>(<span class="string">'gulp-rev-collector'</span>),</div><div class="line">    autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>), <span class="comment">//css3的自动添加前缀</span></div><div class="line">    gulpSequence = <span class="built_in">require</span>(<span class="string">'gulp-sequence'</span>),</div><div class="line">    gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line">gulp.task(<span class="string">'html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> htmlSrc = <span class="string">"./src/*.html"</span>,</div><div class="line">        htmlDest = <span class="string">"./dest/"</span>;</div><div class="line">    gulp.src(htmlSrc)</div><div class="line">        .pipe(gulp.dest(htmlDest));</div><div class="line">&#125;)</div><div class="line">gulp.task(<span class="string">'image'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> imgSrc = <span class="string">"./src/image/*.*(jpg|png)"</span>,</div><div class="line">        imgDest = <span class="string">"./dest/image/"</span>;</div><div class="line">    gulp.src(imgSrc)</div><div class="line">        .pipe(imagemin())</div><div class="line">        .pipe(gulp.dest(imgDest));</div><div class="line">&#125;)</div><div class="line">gulp.task(<span class="string">'css'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> cssSrc = <span class="string">"./src/css/*.less"</span>,</div><div class="line">        cssDst = <span class="string">"./dest/css/"</span>;</div><div class="line">    gulp.src(cssSrc)</div><div class="line">        .pipe(less())</div><div class="line">        .pipe(minifycss())</div><div class="line">        .pipe(autoprefixer())</div><div class="line">        .pipe(rev())</div><div class="line">        .pipe(gulp.dest(cssDst))</div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(gulp.dest(<span class="string">'./rev'</span>));</div><div class="line">&#125;)</div><div class="line">gulp.task(<span class="string">'js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> jsSrc = <span class="string">"./src/js/*.js"</span>,</div><div class="line">        jsDst = <span class="string">"./dest/js/"</span>;</div><div class="line">    gulp.src(jsSrc)</div><div class="line">        .pipe(uglify())</div><div class="line">        .pipe(gulp.dest(jsDst))</div><div class="line">&#125;)</div><div class="line">gulp.task(<span class="string">'rev'</span>, [<span class="string">'css'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.src([<span class="string">'./rev/rev-manifest.json'</span>, <span class="string">'./src/*.html'</span>])</div><div class="line">        <span class="comment">//读取 rev-manifest.json 文件以及需要进行css名替换的文件</span></div><div class="line">        .pipe(revCollector())</div><div class="line">        <span class="comment">//执行文件内css名的替换</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./dest/'</span>));</div><div class="line">    <span class="comment">//替换后的文件输出的目录</span></div><div class="line">&#125;);</div><div class="line">gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> cleanDest = <span class="string">"./dest/*"</span>;</div><div class="line">    gulp.src(cleanDest, &#123; <span class="attr">read</span>: <span class="literal">false</span> &#125;)</div><div class="line">        .pipe(clean());</div><div class="line">&#125;);</div><div class="line">gulp.task(<span class="string">'sequence'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</div><div class="line">    <span class="comment">// 自定义gulp任务的同步或者异步运行</span></div><div class="line">    gulpSequence([<span class="string">'html'</span>, <span class="string">'css'</span>, <span class="string">'js'</span>], <span class="string">'rev'</span>, <span class="string">'image'</span>)(callback);</div><div class="line">&#125;)</div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.start(<span class="string">'sequence'</span>);</div><div class="line">&#125;);</div><div class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 监听html</span></div><div class="line">    gulp.watch(<span class="string">'./src/*.html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        gulp.run(<span class="string">'html'</span>);</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    <span class="comment">// 监听css</span></div><div class="line">    gulp.watch(<span class="string">'./src/css/*.less'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        gulp.run(<span class="string">'css'</span>);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 监听image</span></div><div class="line">    gulp.watch(<span class="string">'./src/image/**/*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        gulp.run(<span class="string">'image'</span>);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 监听js</span></div><div class="line">    gulp.watch(<span class="string">'./src/js/*.js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        gulp.run(<span class="string">'js'</span>);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>项目的目录结构如下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1785100-659d21781e88d089.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目录结构.jpg"></p>
+<p>在cmd命令行下键入命令到达安装gulp插件的目录,然后输入gulp命令，出现如下图，说明配置成功。<br><img src="http://upload-images.jianshu.io/upload_images/1785100-0f5fbee1fefb6c36.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gulp命令.jpg"></p>
+<p>上面的一些gulp的插件使用可以到github中去查询。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/14/study-gulp/" class="archive-article-date">
+  	<time datetime="2016-09-14T07:16:08.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端自动化/">前端自动化</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/09/14/baidu-transcoding/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          百度转码解决方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/14/four-this-bindings/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">this的四种绑定</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Alex
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Github/" style="font-size: 16.67px;">Github</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Mongodb/" style="font-size: 13.33px;">Mongodb</a> <a href="/tags/Node/" style="font-size: 13.33px;">Node</a> <a href="/tags/SSH公钥/" style="font-size: 10px;">SSH公钥</a> <a href="/tags/Tips/" style="font-size: 10px;">Tips</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/flex/" style="font-size: 13.33px;">flex</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/前端自动化/" style="font-size: 10px;">前端自动化</a> <a href="/tags/包管理工具/" style="font-size: 10px;">包管理工具</a> <a href="/tags/博客/" style="font-size: 16.67px;">博客</a> <a href="/tags/数据库/" style="font-size: 13.33px;">数据库</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://smallfat401.github.io/">曹家小胖</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
